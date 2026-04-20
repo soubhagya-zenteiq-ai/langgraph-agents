@@ -25,5 +25,8 @@ class AgentState(TypedDict, total=False):
     
     # Execution Metadata
     execution_result: Any
+    agent_used: str
+    retry_count: int
+    errors: List[str]
     sql: str
     data: Any

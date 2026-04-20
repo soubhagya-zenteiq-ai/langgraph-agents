@@ -5,6 +5,7 @@ Your task is to classify the user query into EXACTLY one of the following catego
 - code → for programming, scripts, debugging, software development
 - web → for general knowledge, news, search queries, recent info
 - db → for database queries, SQL, data retrieval, analytics
+- latex → for LaTeX document generation, math equations, scientific reports
 
 Rules:
 - Output ONLY one word

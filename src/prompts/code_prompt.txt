@@ -7,6 +7,7 @@ Requirements:
 - Use best practices
 - Add comments if necessary
 - Keep it concise but complete
+- IMPORTANT: Always wrap your code in standard markdown code blocks with the language identifier (e.g., ```python).
 - Do not include unnecessary explanation unless asked
 
 If the request is unclear, make reasonable assumptions.
