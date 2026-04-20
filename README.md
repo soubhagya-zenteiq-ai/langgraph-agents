@@ -106,11 +106,17 @@ docker exec -it ai_piston_executor_api python scripts/run_agent.py \
 docker exec -it ai_piston_executor_api python scripts/test_queries.py
 ```
 
-### 🌐 REST API
+### 🌐 API Testing (Swagger & curl)
+The API is exposed on port `8001`.
+
+**Swagger UI (Interactive Browser Testing):**
+👉 **[http://localhost:8001/docs](http://localhost:8001/docs)**
+
+**curl Command:**
 ```bash
 curl -X POST http://localhost:8001/agent/run \
      -H "Content-Type: application/json" \
-     -d '{"query": "Write a Python function to sort a list"}'
+     -d '{"query": "Create a simple React counter component"}'
 ```
 
 ---
