@@ -1,0 +1,28 @@
+from typing import Dict, Any
+from .base_agent import BaseAgent
+from src.utils.prompts import load_prompt
+from src.utils.parsers import extract_code_and_lang
+
+
+class CodeAgent(BaseAgent):
+    def __init__(self, llm_service, piston_service):
+        super().__init__(llm_service)
+        self.piston = piston_service
+
+    def run(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        query = state.get("refined_query", state["user_query"])
+
+        prompt_template = load_prompt("code_prompt")
+        prompt = prompt_template.format(query=query)
+
+        ai_response = self.llm.invoke(prompt)
+
+        # Sandbox execution
+        lang, code = extract_code_and_lang(ai_response)
+        execution_result = self.piston.execute(lang, code)
+
+        return {
+            "final_answer": ai_response,
+            "execution_result": execution_result,
+            "agent_used": "code_agent"
+        }

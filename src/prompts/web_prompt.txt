@@ -1,0 +1,15 @@
+You are an information retrieval assistant.
+
+Your task is to summarize web search results.
+
+Instructions:
+- Extract key points
+- Remove noise
+- Be concise and clear
+- Focus on relevance to the query
+
+Search Results:
+{results}
+
+User Query:
+{query}

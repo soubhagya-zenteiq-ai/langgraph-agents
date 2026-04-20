@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  ai-code-api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai_piston_executor_api
+    ports:
+      - "8001:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+      - ./scripts:/app/scripts
+    restart: unless-stopped
+    depends_on:
+      - piston-engine
+      - latex-checker
+    # Prevent the container from taking up too much memory while idling
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  piston-engine:
+    image: ghcr.io/engineer-man/piston
+    container_name: piston_engine
+    ports:
+      - "2000:2000"
+    volumes:
+      - ./piston/packages:/piston/packages
+    privileged: true
+    restart: unless-stopped
+
+  latex-checker:
+    image: texlive/texlive:latest-medium
+    container_name: latex_checker
+    volumes:
+      - ./src/latex_server.py:/latex_server.py
+      - ./latex_outputs:/latex_outputs
+    command: python3 /latex_server.py
+    restart: unless-stopped
+
+  demo-postgres:
+    image: postgres:15-alpine
+    container_name: demo_postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: demo_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

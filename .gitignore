@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+
+# Logs and debug
+*.log
+execution_log.txt
+logs/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Brain/Session data
+.gemini/
+.agents/
+.agent/
+_agents/
+_agent/
+
+# Project Specific
+piston/data/
+piston/packages/
+latex_outputs/
+ai-code-executor-piston/
