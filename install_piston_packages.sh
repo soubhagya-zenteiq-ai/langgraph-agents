@@ -1,5 +1,9 @@
 #!/bin/bash
-# Script to install basic Piston runtimes
+
+# Purpose: Utility script to pre-load specific language runtimes into the Piston sandbox.
+# Communicates with the Piston API to install necessary packages for code execution.
+# Ensures that agents have access to required runtimes at system startup.
+
 # Usage: ./install_piston_packages.sh [lang1] [lang2] ...
 # HOST: set PISTON_HOST to override default http://localhost:2000
 

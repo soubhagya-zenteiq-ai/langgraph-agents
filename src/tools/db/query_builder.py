@@ -1,4 +1,10 @@
+"""
+Helper for constructing dynamic and safe SQL queries from natural language.
+Simplifies complex query generation by providing context and schema hints to the LLM.
+Ensures that the output is a valid SQL string ready for execution.
+"""
 from typing import Dict, Any
+
 from langchain.tools import tool
 
 

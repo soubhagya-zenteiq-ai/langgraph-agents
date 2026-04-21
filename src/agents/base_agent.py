@@ -1,4 +1,10 @@
+"""
+Abstract base class for all specialized agents.
+Defines the common interface (run method) and initializes shared services.
+Ensures that all agents follow a consistent structure for LangGraph integration.
+"""
 from abc import ABC, abstractmethod
+
 from typing import Any, Dict
 
 

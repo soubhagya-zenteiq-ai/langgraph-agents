@@ -1,3 +1,9 @@
+"""
+HTTP server for LaTeX compilation, running inside the TeXLive Docker container.
+Receives LaTeX source code via POST, compiles it using pdflatex, and returns the result.
+Manages persistent storage of generated PDF documents in the /latex_outputs directory.
+Acts as an isolated, secure wrapper around the TeXLive distribution.
+"""
 import http.server
 import json
 import subprocess

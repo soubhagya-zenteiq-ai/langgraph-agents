@@ -1,4 +1,10 @@
+"""
+Orchestrates the assembly of the LangGraph state machine.
+Defines nodes, edges, and conditional routing logic for the multi-agent system.
+Assembles the graph from specialized agents and core processing nodes.
+"""
 from langgraph.graph import StateGraph, START, END
+
 
 from src.graph.state import AgentState
 

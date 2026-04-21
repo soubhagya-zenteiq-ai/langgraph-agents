@@ -1,4 +1,10 @@
+"""
+A core node that invokes the primary Language Model.
+Prepares the conversation context and executes the LLM to determine next steps.
+Acts as the central 'brain' of the workflow, making processing decisions.
+"""
 from typing import Dict, Any
+
 
 
 def llm_node(state: Dict[str, Any], llm) -> Dict[str, Any]:

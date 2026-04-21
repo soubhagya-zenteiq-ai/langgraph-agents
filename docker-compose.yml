@@ -1,4 +1,9 @@
+# Purpose: Orchestrates the multi-container setup for the LangGraph agent system.
+# Includes the main API, Piston code execution engine, LaTeX compilation server, and PostgreSQL database.
+# Provides a complete, isolated environment for running and testing the entire system.
+
 version: '3.8'
+
 
 services:
   ai-code-api:

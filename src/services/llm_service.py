@@ -1,20 +1,20 @@
+"""
+Wrapper for LLM interactions (e.g., Groq, OpenAI).
+Manages API calls, message formatting, and model configuration.
+Provides a unified interface for the system to invoke language models.
+"""
 import os
-from typing import Optional
-from langchain_groq import ChatGroq
-from dotenv import load_dotenv
 
-load_dotenv()
+from typing import Optional
+from src.config.settings import settings
+from langchain_groq import ChatGroq
 
 class LLMService:
-    def __init__(self, model_name: str = "llama-3.3-70b-versatile", temperature: float = 0):
-        api_key = os.getenv("GROQ_API_KEY")
-        if not api_key:
-            raise ValueError("GROQ_API_KEY not found in environment variables")
-            
+    def __init__(self, model_name: Optional[str] = None, temperature: Optional[float] = None):
         self.model = ChatGroq(
-            model=model_name,
-            temperature=temperature,
-            groq_api_key=api_key
+            model=model_name or settings.DEFAULT_MODEL,
+            temperature=temperature if temperature is not None else settings.TEMPERATURE,
+            groq_api_key=settings.GROQ_API_KEY
         )
 
     def invoke(self, prompt: str) -> str:

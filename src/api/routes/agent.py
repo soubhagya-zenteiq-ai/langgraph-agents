@@ -1,4 +1,10 @@
+"""
+Defines REST API endpoints for agent interaction.
+Handles query processing, LangGraph workflow execution, and response delivery.
+Acts as the bridge between the external HTTP interface and the internal agent logic.
+"""
 from fastapi import APIRouter, HTTPException
+
 from src.graph.builder import build_graph
 
 # services
@@ -27,8 +33,7 @@ def create_system():
     web_service = WebService()
     piston_service = PistonService()
     latex_service = LatexService()
-    # Updated DSN for the demo postgres container
-    db_service = DBService(dsn="postgresql://user:password@demo_postgres:5432/demo_db")
+    db_service = DBService()
 
     agents = {
         "code": CodeAgent(llm, piston_service),

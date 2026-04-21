@@ -1,3 +1,8 @@
+"""
+Command-line utility to run a single query through the LangGraph agent system.
+Useful for manual testing and verification of specific agent behaviors.
+Initializes the entire graph and invokes it with the provided user query.
+"""
 import sys
 import os
 

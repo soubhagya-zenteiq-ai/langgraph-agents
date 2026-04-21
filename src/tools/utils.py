@@ -1,4 +1,10 @@
+"""
+General-purpose utilities used across different tools and services.
+Includes helpers for JSON extraction, text cleaning, and SQL safety validation.
+Provides common logic to avoid code duplication in specialized tool modules.
+"""
 import re
+
 from typing import Any, Dict
 
 

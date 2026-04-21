@@ -1,3 +1,7 @@
+-- Purpose: Database initialization script for the demo PostgreSQL instance.
+-- Creates the core schema (users, products, orders) and seeds it with sample data.
+-- Automatically executed by the demo-postgres container on first startup.
+
 -- Users Table
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,

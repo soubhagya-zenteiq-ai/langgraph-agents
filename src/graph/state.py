@@ -1,5 +1,11 @@
-from typing import TypedDict, Annotated, List, Dict, Any
+"""
+Defines the shared state for the LangGraph workflow.
+The AgentState tracks queries, intents, tool execution results, and metadata.
+Ensures consistency and data flow across all nodes in the agent network.
+"""
+from typing import TypedDict, Annotated, List, Dict, Any, Union
 import operator
+from src.api.schemas.service_responses import ExecutionResult, DBResponse, WebSearchResponse
 
 
 class AgentState(TypedDict, total=False):
@@ -7,7 +13,7 @@ class AgentState(TypedDict, total=False):
     user_query: str
     intent: str
 
-    # Conversation
+    # Conversation - Accumulates messages
     messages: Annotated[List[Any], operator.add]
 
     # Tool / agent flow
@@ -24,9 +30,10 @@ class AgentState(TypedDict, total=False):
     response: str
     
     # Execution Metadata
-    execution_result: Any
+    execution_result: Union[ExecutionResult, DBResponse, WebSearchResponse, Any]
     agent_used: str
     retry_count: int
     errors: List[str]
     sql: str
     data: Any
+    metadata: Dict[str, Any]

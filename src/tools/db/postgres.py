@@ -1,4 +1,10 @@
+"""
+Low-level database utility for safely executing PostgreSQL queries.
+Handles security checks to ensure only read-only SELECT queries are performed.
+Provides a LangChain-compatible tool interface for database interactions.
+"""
 from typing import Dict, Any
+
 from langchain.tools import tool
 
 

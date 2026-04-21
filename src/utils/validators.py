@@ -1,11 +1,17 @@
+"""
+Custom validation logic for system inputs and outputs.
+Ensures that data flowing through the graph meets specific criteria and constraints.
+Protects the system from malformed queries and unsafe operations.
+"""
 from typing import Dict, Any
+
 
 
 # -----------------------------
 # Intent validation
 # -----------------------------
 
-VALID_INTENTS = {"code", "web", "db"}
+VALID_INTENTS = {"code", "web", "db", "latex"}
 
 
 def validate_intent(intent: str) -> str:

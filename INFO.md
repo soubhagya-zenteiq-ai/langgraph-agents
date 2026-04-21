@@ -1,5 +1,11 @@
 # INFO — Architecture & Design Documentation
 
+<!--
+Purpose: Comprehensive technical documentation covering system architecture and low-level design.
+Details the LangGraph state machine, agent logic, sandbox orchestration, and service layer.
+Serves as the primary reference for understanding the system's internal workings and design principles.
+-->
+
 Comprehensive **High-Level Design (HLD)** and **Low-Level Design (LLD)** for the LangGraph Multi-Agent System.
 
 ---

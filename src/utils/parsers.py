@@ -1,4 +1,10 @@
+"""
+Contains functions for parsing LLM outputs.
+Extracts structured data like code blocks, JSON, or specific intents from raw text responses.
+Provides robust text processing to transform unstructured AI responses into system-usable data.
+"""
 import re
+
 
 def extract_code_and_lang(text: str):
     """

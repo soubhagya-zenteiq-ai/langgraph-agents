@@ -1,4 +1,10 @@
+"""
+Configures and manages the application's logging system.
+Ensures consistent log formatting and output across all modules.
+Provides a unified logger instance for tracking system behavior and errors.
+"""
 import logging
+
 import sys
 
 

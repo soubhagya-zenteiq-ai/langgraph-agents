@@ -1,4 +1,9 @@
+# Purpose: Defines the container environment for the LangGraph Multi-Agent system.
+# Sets up Python 3.11, installs system dependencies, and configures the FastAPI application.
+# Ensures a consistent and reproducible runtime across different deployment targets.
+
 # -----------------------------
+
 # Base Image
 # -----------------------------
 FROM python:3.11-slim

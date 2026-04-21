@@ -1,3 +1,7 @@
+# Purpose: Lists all Python library dependencies required for the LangGraph agent system.
+# Includes core frameworks (FastAPI, LangGraph), LLM integration (LangChain), and service clients.
+# Used by pip to install necessary packages during environment setup and container building.
+
 fastapi>=0.110.0
 uvicorn>=0.27.0
 pydantic-settings>=2.2.0

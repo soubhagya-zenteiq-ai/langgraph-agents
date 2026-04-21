@@ -1,3 +1,8 @@
+"""
+Batch testing script to evaluate the system with multiple queries.
+Automates the verification of various agent capabilities (Code, Web, DB).
+Helps ensure quality and consistency across system updates and refactors.
+"""
 import sys
 import os
 

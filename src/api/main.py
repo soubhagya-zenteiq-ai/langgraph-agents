@@ -1,4 +1,11 @@
+"""
+Entry point for the FastAPI application.
+Initializes the FastAPI app, registers agent routes, and provides a health check.
+This serves as the main web interface for the multi-agent system.
+"""
 from fastapi import FastAPI
+
+from src.config.settings import settings
 from src.api.routes.agent import router as agent_router
 
 

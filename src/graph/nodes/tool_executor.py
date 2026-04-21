@@ -1,4 +1,10 @@
+"""
+Generic node for managing the execution of external tools or internal agent functions.
+Acts as an abstraction layer for tool calls within the graph.
+Processes tool inputs and captures outputs for the system state.
+"""
 from typing import Dict, Any
+
 
 
 def tool_executor_node(state: Dict[str, Any], tools_by_name) -> Dict[str, Any]:

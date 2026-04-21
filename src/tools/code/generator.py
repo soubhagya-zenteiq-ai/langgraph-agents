@@ -1,5 +1,11 @@
+"""
+Utility for generating boilerplate or specific code structures.
+Assists the Code Agent in producing valid and runnable source code.
+Can be used as a standalone module or wrapped as a LangChain tool.
+"""
 from typing import Dict, Any
 from langchain.tools import tool
+from src.api.schemas.service_responses import CodeGeneratorResponse
 
 
 class CodeGenerator:
@@ -11,17 +17,15 @@ class CodeGenerator:
         self.llm = llm_service
         self.load_prompt = prompt_loader
 
-    def generate(self, query: str) -> Dict[str, Any]:
+    def generate(self, query: str) -> CodeGeneratorResponse:
         prompt_template = self.load_prompt("code_prompt")
-
         prompt = prompt_template.format(query=query)
-
         response = self.llm.invoke(prompt)
 
-        return {
-            "code": response,
-            "status": "success"
-        }
+        return CodeGeneratorResponse(
+            status="success",
+            code=response
+        )
 
 
 # -----------------------------
@@ -39,6 +43,6 @@ def create_code_tool(code_generator: CodeGenerator):
         Generate production-ready code from a natural language query.
         """
         result = code_generator.generate(query)
-        return result["code"]
+        return result.code
 
     return generate_code

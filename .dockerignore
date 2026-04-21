@@ -1,0 +1,15 @@
+# Directories to ignore in Docker build context
+venv/
+piston/
+latex_outputs/
+.git/
+.env
+__pycache__/
+*.pyc
+bash_history
+execution_log.txt
+node_modules/
+dist/
+build/
+*.bak
+*.tmp

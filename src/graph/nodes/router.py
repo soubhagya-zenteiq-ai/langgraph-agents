@@ -1,4 +1,10 @@
+"""
+Analyzes LLM output to determine the user's intent.
+Routes the flow to the appropriate agent (code, web, db, latex) based on detected tasks.
+Ensures that specialized queries are handled by the correct downstream nodes.
+"""
 from typing import Dict, Any
+
 from src.utils.prompts import load_prompt
 
 

@@ -1,5 +1,11 @@
 # LangGraph Multi-Agent System
 
+<!--
+Purpose: Main entry point for project documentation.
+Provides an overview of the system, quick start guide, and examples of various agent capabilities.
+Helps developers understand the project structure and how to run the multi-agent system locally.
+-->
+
 A production-ready, multi-agent AI system built with **LangGraph** and **Groq**. It autonomously routes natural language queries to specialized agents (Code, LaTeX, Web, DB), executes them in isolated Docker sandboxes, and self-corrects on failure.
 
 > See [INFO.md](INFO.md) for the full High-Level & Low-Level Design documentation.
@@ -30,9 +36,21 @@ This spins up **4 containers**:
 | `latex_checker` | texlive/texlive:latest-medium | (internal) | LaTeX compiler |
 | `demo_postgres` | postgres:15-alpine | `5433` | Demo database |
 
-### 3. Verify All Services
+### 3. Quick Start with Makefile
+For convenience, a `Makefile` is provided to handle all orchestration:
+
 ```bash
-docker ps
+# Start everything (clean, build, and install runtimes)
+make up
+
+# Stop system
+make down
+
+# View logs
+make logs
+
+# Run a test query
+make test
 ```
 
 ---

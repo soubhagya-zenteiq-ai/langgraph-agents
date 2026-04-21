@@ -1,4 +1,10 @@
+"""
+Contains logic for conditional routing based on user intent.
+Maps specific intents (code, web, db, latex) to their corresponding agent nodes.
+Allows the graph to dynamically branch based on the type of task detected.
+"""
 from typing import Literal
+
 from src.graph.state import AgentState
 
 

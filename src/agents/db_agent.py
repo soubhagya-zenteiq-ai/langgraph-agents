@@ -1,7 +1,14 @@
+"""
+Manages database-related tasks, including SQL generation and execution.
+Converts natural language queries into executable SQL for PostgreSQL.
+Processes database results and provides clear explanations to the user.
+"""
 from typing import Dict, Any
+
 from .base_agent import BaseAgent
 from src.utils.prompts import load_prompt
 from src.utils.parsers import clean_sql
+from src.api.schemas.service_responses import AgentResult
 
 
 class DBAgent(BaseAgent):
@@ -31,9 +38,17 @@ class DBAgent(BaseAgent):
         Provide a concise natural language explanation of this result.
         """)
 
+        res = AgentResult(
+            final_answer=explanation,
+            execution_result=result,
+            agent_used="db_agent",
+            metadata={"sql": cleaned_sql}
+        )
+        
         return {
-            "final_answer": explanation,
-            "data": result,
+            "final_answer": res.final_answer,
+            "execution_result": res.execution_result,
+            "agent_used": res.agent_used,
             "sql": cleaned_sql,
-            "agent_used": "db_agent"
+            "data": res.execution_result 
         }
